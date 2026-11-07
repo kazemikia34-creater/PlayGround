@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080a0b" />
+  <meta name="description" content="The Facility: Null — a survival horror experience." />
+  <title>The Facility: Null</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene" aria-label="The Facility: Null game scene"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div id="menu" class="screen">
+      <header class="topbar"><div class="brand-mark"><span class="mark-icon">N</span><span>NULL<span class="brand-light">/FACILITY</span></span></div><div class="top-meta"><span class="signal-dot"></span><span id="menu-status">SIGNAL LOST · 03:17 AM</span></div></header>
+      <section class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="classified">CLASSIFIED INCIDENT · 09 OCT 1998</span></p>
+        <h1>The Facility<span class="title-colon">:</span><br><span class="title-second">Null</span></h1>
+        <div class="creator">Created by <span>°-° KING LOOK.S</span></div>
+        <p class="hero-description" data-i18n="tagline">THE SILENCE IS LISTENING.</p>
+        <div class="menu-actions">
+          <button class="primary-button" id="start-button"><span data-i18n="begin">Begin descent</span><span class="button-arrow">↗</span></button>
+          <button class="text-button" id="multiplayer-button"><span data-i18n="multiplayer">Multiplayer</span><span class="button-arrow">→</span></button>
+          <button class="text-button" id="settings-button"><span data-i18n="settings">Einstellungen</span><span class="button-arrow">→</span></button>
+        </div>
+      </section>
+      <footer class="menu-footer"><span>© 1998 · UMBRA BIOTECH</span><span class="footer-center">A FACILITY-NUL INCIDENT</span><span>BUILD 0.9.4 <b>●</b></span></footer>
+      <aside class="menu-note"><span class="note-rule"></span><p data-i18n="menuNote">„Wenn du es hörst, hat es dich längst gefunden.“</p><small>— AUS DEM WACHBUCH, ZIMMER 04</small></aside>
+    </div>
+    <section id="settings-panel" class="panel hidden" aria-modal="true" role="dialog">
+      <button class="panel-close" data-close>×</button><p class="eyebrow">SYSTEM CONFIGURATION</p><h2 data-i18n="settings">Einstellungen</h2>
+      <div class="setting-row"><div><strong data-i18n="language">Sprache</strong><small data-i18n="languageHint">Menüs & Untertitel</small></div><div class="segmented"><button data-lang="de" class="selected">DE</button><button data-lang="en">EN</button></div></div>
+      <div class="setting-row"><div><strong data-i18n="graphics">Grafik</strong><small data-i18n="graphicsHint">Darstellung & Effekte</small></div><span class="setting-value">CINEMATIC</span></div>
+      <div class="setting-row"><div><strong data-i18n="audio">Audio</strong><small data-i18n="audioHint">Raumklang aktiviert</small></div><span class="setting-value">SPATIAL · ON</span></div>
+      <div class="setting-row"><div><strong data-i18n="controls">Steuerung</strong><small>WASD · Maus · E · F · Shift</small></div><span class="setting-value">KEYBOARD</span></div>
+      <button class="primary-button panel-back" data-close><span data-i18n="back">Zurück</span><span class="button-arrow">←</span></button>
+    </section>
+    <section id="multiplayer-panel" class="panel hidden" aria-modal="true" role="dialog">
+      <button class="panel-close" data-close>×</button><p class="eyebrow">CO-OP PROTOCOL · 02—04 OPERATIVES</p><h2 data-i18n="multiplayer">Multiplayer</h2>
+      <button class="lobby-option" id="private-button"><span class="option-icon">⌑</span><span><strong data-i18n="private">Privater Raum</strong><small data-i18n="privateHint">Code erstellen oder beitreten</small></span><i>↗</i></button>
+      <div id="room-tools" class="room-tools hidden"><div class="room-code"><small data-i18n="yourCode">DEIN RAUMCODE</small><strong id="room-code">----</strong></div><div class="join-row"><input id="join-code" maxlength="4" placeholder="CODE" aria-label="Room code"><button id="join-button" class="small-button" data-i18n="join">Beitreten</button></div></div>
+      <button class="lobby-option" id="quick-button"><span class="option-icon">⌁</span><span><strong data-i18n="quick">Schnelles Spiel</strong><small data-i18n="quickHint">Öffentliche Suche starten</small></span><i>↗</i></button>
+      <button class="lobby-option" id="offline-button"><span class="option-icon">◉</span><span><strong data-i18n="offline">Offline / Bots</strong><small data-i18n="offlineHint">Allein oder mit KI-Team</small></span><i>↗</i></button>
+      <p class="panel-footnote" data-i18n="networkNote">Private Räume und Matchmaking werden lokal simuliert. Für Online-Koop ist ein Multiplayer-Server erforderlich.</p>
+    </section>
+    <section id="intro-panel" class="panel intro-panel hidden" aria-modal="true" role="dialog">
+      <p class="eyebrow">UMBRA BIOTECH · INCIDENT REPORT 09-98</p><h2 data-i18n="wakeTitle">Erwachen</h2>
+      <p class="intro-copy" data-i18n="introCopy">Du kommst in einem verschlossenen Sicherheitsbüro zu dir. Auf dem Schreibtisch liegt ein blutiges Wachbuch. Ein genetischer Versuch ist ausgebrochen. Der Wirt reagiert auf Geräusche. Finde die drei verschlüsselten Sektorkarten, starte den Generator und erreiche den Oberflächenaufzug.</p>
+      <div class="intro-quote"><span>VOICE LOG · ENGLISH</span><p>“Do not run. It follows the sound. If the lights go out, stay very, very quiet.”</p></div>
+      <div class="controls-grid"><span><b>W A S D</b><small data-i18n="move">BEWEGEN</small></span><span><b>MOUSE</b><small data-i18n="look">UMSEHEN</small></span><span><b>E</b><small data-i18n="interact">INTERAGIEREN</small></span><span><b>F</b><small data-i18n="flashlight">TASCHENLAMPE</small></span><span><b>SHIFT</b><small data-i18n="sprint">SPRINT</small></span><span><b>J</b><small data-i18n="journal">WACHBUCH</small></span></div>
+      <button class="primary-button panel-back" id="wake-button"><span data-i18n="wakeButton">Das Büro verlassen</span><span class="button-arrow">↗</span></button>
+    </section>
+    <div id="game-ui" class="game-ui hidden">
+      <div class="game-topline"><div class="sector-label"><span class="sector-dot"></span><span id="sector-name">SECURITY OFFICE</span></div><div class="top-objective" id="objective-label"></div></div>
+      <div class="interaction-prompt hidden" id="prompt"><span class="keycap">E</span><span id="prompt-text"></span></div>
+      <div class="radio-subtitle hidden" id="subtitle"><span class="radio-label">RADIO · ENGLISH</span><span id="subtitle-text"></span></div>
+      <div id="journal-overlay" class="journal-overlay hidden"><div class="journal-paper"><button id="journal-close" class="journal-close">×</button><span class="eyebrow">UMBRA BIOTECH · SECURITY LOG</span><h2 data-i18n="journalTitle">Wachbuch</h2><p data-i18n="journalBody">Die drei Sektorkarten öffnen die Sicherheitstore. Im Reaktorraum befindet sich der Hauptgenerator. Sobald er läuft, kann der Aufzug an die Oberfläche gerufen werden. Bleib leise. Es hört jeden Schritt.</p><div id="inventory-text"></div></div></div>
+      <div id="end-screen" class="end-screen hidden"><p class="eyebrow">UMBRA BIOTECH · INCIDENT CLOSED</p><h2 id="end-title">ESCAPED</h2><p id="end-copy"></p><button class="primary-button" id="restart-button"><span data-i18n="returnMenu">Zum Hauptmenü</span><span class="button-arrow">↗</span></button></div>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+    <div id="touch-controls" class="touch-controls hidden"><div class="touch-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div><button id="touch-interact" class="touch-action">E</button><button id="touch-flashlight" class="touch-action">◉</button></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
