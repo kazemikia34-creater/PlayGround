@@ -16,3 +16,24 @@
 - 👤 [Explore the creator's projects](https://go.ondev.store/kazemikia34-creater).
 - 🌍 [Create with OMGithub](https://go.ondev.store/).
 <!-- omgithub:readme:end -->
+
+## The Facility: Null
+
+A self-contained, single-player survival-horror game. Open `index.html` in a browser, or serve this folder locally:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000/`.
+
+### Controls
+
+- **WASD** — move / strafe
+- **Mouse** — look around
+- **E** — inspect, pick up, or use objects
+- **F** — toggle flashlight
+- **Shift** — run (the extra noise attracts the creature)
+- **Esc** — pause
+
+Find three fuse cores, restore power at the control panel, and reach the service lift before lockdown. The current prototype supports solo play only; online co-op and lobby codes are not implemented.
